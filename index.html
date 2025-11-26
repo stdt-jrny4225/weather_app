@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-menu">
+                <button class="sidebar-btn" data-action="focus-current" aria-label="Current weather">
+                    <i class="fa-solid fa-cloud-sun"></i>
+                </button>
+                <button class="sidebar-btn" data-action="scroll-air" aria-label="Air conditions">
+                    <i class="fa-solid fa-wind"></i>
+                </button>
+                <button class="sidebar-btn" data-action="scroll-hourly" aria-label="Hourly forecast">
+                    <i class="fa-solid fa-water"></i>
+                </button>
+                <button class="sidebar-btn" data-action="toggle-forecast" aria-label="Toggle 7 day forecast">
+                    <i class="fa-solid fa-eye"></i>
+                </button>
+                <button class="sidebar-btn" data-action="show-more" aria-label="Show more conditions">
+                    <i class="fa-solid fa-gauge"></i>
+                </button>
+            </div>
+            <div class="sidebar-bottom">
+                <button id="locate-btn" title="Use my location">
+                    <i class="fa-solid fa-location-dot"></i>
+                </button>
+                <button id="peek-map-btn" title="Peek map">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Search Bar -->
+            <div class="search-section">
+                <form>
+                    <input type="text" id="name" autocomplete="off" placeholder="Search for cities">
+                    <button type="submit">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Current Weather -->
+            <section class="current-weather">
+                <div class="weather-header">
+                        <h2 id="city-name">Mohania</h2>
+                        <p id="state-country" class="muted">State, Country</p>
+                        <p id="country-name">Chance of rain: 0%</p>
+                </div>
+                <div class="weather-display">
+                    <div class="temperature-section">
+                        <span id="temp" class="temperature">31</span>
+                        <sup>°</sup>
+                    </div>
+                    <img id="weather-icon" src="https://openweathermap.org/img/wn/01d@4x.png" alt="weather">
+                </div>
+
+                <!-- Hourly Forecast -->
+                <div class="hourly-forecast">
+                    <h3>TODAY'S FORECAST</h3>
+                    <div class="hourly-scroll">
+                        <div class="hour-item">
+                            <span class="time">9:00 AM</span>
+                            <img src="https://openweathermap.org/img/wn/01d@2x.png" alt="">
+                            <span class="hour-temp">25°</span>
+                        </div>
+                        <div class="hour-item">
+                            <span class="time">10:00 AM</span>
+                            <img src="https://openweathermap.org/img/wn/02d@2x.png" alt="">
+                            <span class="hour-temp">28°</span>
+                        </div>
+                        <div class="hour-item">
+                            <span class="time">12:00 PM</span>
+                            <img src="https://openweathermap.org/img/wn/01d@2x.png" alt="">
+                            <span class="hour-temp">33°</span>
+                        </div>
+                        <div class="hour-item">
+                            <span class="time">3:00 PM</span>
+                            <img src="https://openweathermap.org/img/wn/01d@2x.png" alt="">
+                            <span class="hour-temp">34°</span>
+                        </div>
+                        <div class="hour-item">
+                            <span class="time">6:00 PM</span>
+                            <img src="https://openweathermap.org/img/wn/01d@2x.png" alt="">
+                            <span class="hour-temp">32°</span>
+                        </div>
+                        <div class="hour-item">
+                            <span class="time">8:00 PM</span>
+                            <img src="https://openweathermap.org/img/wn/04d@2x.png" alt="">
+                            <span class="hour-temp">30°</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Air Conditions -->
+                <div class="air-conditions">
+                    <h3>AIR CONDITIONS</h3>
+                    <div class="conditions-grid">
+                        <div class="condition-item">
+                            <i class="fa-solid fa-wind"></i>
+                            <span class="label">Wind</span>
+                            <span class="value" id="wind">5</span> m/s
+                        </div>
+                        <div class="condition-item">
+                            <i class="fa-solid fa-cloud"></i>
+                            <span class="label">Chance of rain</span>
+                            <span class="value" id="rain">0</span>%
+                        </div>
+                    </div>
+                    <button class="see-more">SEE MORE</button>
+                </div>
+                <!-- Extra feature cards (hidden until 'SEE MORE' is clicked) -->
+                <div class="extra-cards hidden">
+                    <div class="card" id="card-feels">
+                        <div class="card-title">Feels Like</div>
+                        <div class="card-value" id="feels_like">--°</div>
+                    </div>
+                    <div class="card" id="card-uv">
+                        <div class="card-title">UV Index</div>
+                        <div class="card-value" id="uv_index">--</div>
+                    </div>
+                    <div class="card" id="card-vis">
+                        <div class="card-title">Visibility</div>
+                        <div class="card-value" id="visibility">-- km</div>
+                    </div>
+                    <div class="card" id="card-dew">
+                        <div class="card-title">Dew Point</div>
+                        <div class="card-value" id="dew_point">--°</div>
+                    </div>
+                    <div class="card" id="card-sun">
+                        <div class="card-title">Sunrise / Sunset</div>
+                        <div class="card-value" id="sunrise_sunset">-- / --</div>
+                    </div>
+                </div>
+                <!-- Map panel (hidden by default) -->
+                <div id="map-panel" class="map-panel hidden">
+                    <button id="close-map" class="close-map">Close</button>
+                    <iframe id="map-iframe" src="" frameborder="0" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </section>
+        </main>
+
+        <!-- Right Sidebar - Forecast -->
+        <aside class="forecast-sidebar">
+            <h3>7 DAY FORECAST</h3>
+            <div class="forecast-list">
+                <div class="forecast-item">
+                    <span class="day">Today</span>
+                    <img src="https://openweathermap.org/img/wn/01d@2x.png" alt="">
+                    <span class="forecast-condition">Sunny</span>
+                    <span class="forecast-temp">36°/32°</span>
+                </div>
+                <div class="forecast-item">
+                    <span class="day">Tue</span>
+                    <img src="https://openweathermap.org/img/wn/02d@2x.png" alt="">
+                    <span class="forecast-condition">Sunny</span>
+                    <span class="forecast-temp">37°/31°</span>
+                </div>
+                <div class="forecast-item">
+                    <span class="day">Wed</span>
+                    <img src="https://openweathermap.org/img/wn/01d@2x.png" alt="">
+                    <span class="forecast-condition">Sunny</span>
+                    <span class="forecast-temp">37°/31°</span>
+                </div>
+                <div class="forecast-item">
+                    <span class="day">Thu</span>
+                    <img src="https://openweathermap.org/img/wn/01d@2x.png" alt="">
+                    <span class="forecast-condition">Cloudy</span>
+                    <span class="forecast-temp">37°/31°</span>
+                </div>
+                <div class="forecast-item">
+                    <span class="day">Fri</span>
+                    <img src="https://openweathermap.org/img/wn/01d@2x.png" alt="">
+                    <span class="forecast-condition">Cloudy</span>
+                    <span class="forecast-temp">37°/31°</span>
+                </div>
+                <div class="forecast-item">
+                    <span class="day">Sat</span>
+                    <img src="https://openweathermap.org/img/wn/04d@2x.png" alt="">
+                    <span class="forecast-condition">Rainy</span>
+                    <span class="forecast-temp">37°/31°</span>
+                </div>
+                <div class="forecast-item">
+                    <span class="day">Sun</span>
+                    <img src="https://openweathermap.org/img/wn/09d@2x.png" alt="">
+                    <span class="forecast-condition">Storm</span>
+                    <span class="forecast-temp">37°/31°</span>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
