@@ -75,16 +75,20 @@ Render Data to UI (Dynamic weather cards)
 ## 🖼️ Output Screenshots
 
 ### 🌟 Live UI Preview
-
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/1313a2db-185b-4cbb-b368-c7e6f9c44c9d" />
 
 ## 🎯 Learning Outcomes
 
 From this task, I learned:
 
 ✔ How to consume & handle REST API responses
+
 ✔ Rendering dynamic elements in real-time using JS
+
 ✔ Understanding basic weather parameters
+
 ✔ Mobile-first UI design techniques
+
 ✔ Hosting static web apps on GitHub Pages
 
 ---
@@ -94,7 +98,9 @@ From this task, I learned:
 This Weather Application demonstrates:
 
 ✔ Successful integration of a live weather API
+
 ✔ User-friendly interface with location features
+
 ✔ Fully responsive forecasting system
 
 A professional real-time weather insights platform 🌎⛅✨
