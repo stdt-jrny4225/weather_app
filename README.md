@@ -1,12 +1,18 @@
 
-# 🌦️ Weather Forecast Application — API Integration (Task-1)
+# 🌦️ Weather Forecast Application — API Integration 
 
 **COMPANY :** CODTECH IT SOLUTION
+
 **NAME :** SANJAN KUMAR
+
 **INTERN ID :** CT06DR756
+
 **DOMAIN :** Fullstack Development
+
 **DURATION :** 6 WEEKS
+
 **MENTOR :** NEELA SANTOSH
+
 **BATCH :** 25 OCT TO 10 DEC 2025
 
 ---
